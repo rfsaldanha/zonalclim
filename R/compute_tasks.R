@@ -1,4 +1,24 @@
-compute_zonal_tasks <- function(rst, pol, fn_name, g_var, db_dir){
+#' Compute tasks
+#'
+#' @param rst
+#' @param pol
+#' @param fn_name
+#' @param db_dir
+#' @param p
+#'
+#' @return
+#' @export
+compute_tasks <- function(rst, pol, fn_name, db_dir, p){
+
+  # rst <- zonal_tasks$rst[[2]]
+  # pol <- zonal_tasks$geom[[2]]
+  # fn_name <- zonal_tasks$fn[[2]]
+  # db_dir <- tempfile(fileext = ".sqlite")
+
+
+  # Progress bar update
+  p()
+
   # Set gdal cache
   terra::gdalCache(15000)
 
@@ -11,7 +31,7 @@ compute_zonal_tasks <- function(rst, pol, fn_name, g_var, db_dir){
 
   # Data structure
   tmp <- dplyr::bind_cols(GID_3 = pol$GID_3, tmp) %>%
-    dplyr::pivot_longer(!GID_3) %>%
+    tidyr::pivot_longer(!GID_3) %>%
     dplyr::rename(date = name) %>%
     dplyr::mutate(
       date = as.Date(substr(date, 6, 15)),

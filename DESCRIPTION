@@ -13,6 +13,16 @@ RoxygenNote: 7.2.3
 Imports: 
     DBI,
     exactextractr,
+    furrr,
+    future,
     magrittr,
+    progressr,
     RSQLite,
-    terra
+    stringr,
+    terra,
+    tictoc,
+    tidyr,
+    usethis
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
