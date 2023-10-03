@@ -11,7 +11,7 @@ compute_zonal_tasks(zonal_tasks, g_var, db_file, cores = 1)
 
 \item{g_var}{Variable name (string) that unique identifies each feature at the sf object.}
 
-\item{db_file}{A path and file name for the SQLite database. If already exists, it will be deleted.}
+\item{db_file}{A path and file name for the SQLite database.}
 
 \item{cores}{Number of cores to use.}
 }
