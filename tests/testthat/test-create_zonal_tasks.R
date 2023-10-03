@@ -1,7 +1,7 @@
 test_that("create_zonal_tasks works", {
-  nc_list <- list.files(path = "~/Downloads/eradata/", full.names = TRUE)
-  sf_geom <- geobr::read_municipality(code_muni = "RJ")
-  zonal_list <- c("mean")
+  nc_list <- system.file("extdata", "2m_temperature_2000-01-01_2000-01-31_day_max.nc", package="zonalclim")
+  sf_geom <- gadm41_moz
+  zonal_list <- c("mean", "max", "min", "stdev")
 
   tmp <- create_zonal_tasks(
     nc_files_list = nc_list,
@@ -10,5 +10,5 @@ test_that("create_zonal_tasks works", {
     sf_chunck_size = 10,
     zonal_functions = zonal_list)
 
-  expect_equal(nrow(tmp), 13)
+  expect_equal(nrow(tmp), 16)
 })

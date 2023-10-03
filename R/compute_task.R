@@ -44,6 +44,10 @@ compute_task <- function(rst, pol, g_var, fn_name, db_file, p = NULL){
     dplyr::relocate("name", .before = "value")
 
   # Write to database
+
+  # Extend types requires the hms package. The line below simulates its use to allow include it as a package dependency
+  if(FALSE) hms::hms()
+
   conn = DBI::dbConnect(RSQLite::SQLite(), db_file, extended_types = TRUE, synchronous = NULL)
   DBI::dbExecute(conn, "PRAGMA busy_timeout = 5000")
   on.exit(DBI::dbDisconnect(conn), add = TRUE)

@@ -26,6 +26,7 @@ create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_
   )
 
   # Split sf_geom into chuncks
+  sf_geom <- sf::st_as_sf(sf_geom)
   n_row <- nrow(sf_geom)
   sf_geom_chunks <- sf_geom %>%
     dplyr::mutate(chunk = (seq(n_row)-1) %/% sf_chunck_size + 1) %>%
