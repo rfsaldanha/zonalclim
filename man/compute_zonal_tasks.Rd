@@ -4,7 +4,7 @@
 \alias{compute_zonal_tasks}
 \title{Compute zonal tasks}
 \usage{
-compute_zonal_tasks(zonal_tasks, g_var, db_file, cores = 1)
+compute_zonal_tasks(zonal_tasks, g_var, db_file)
 }
 \arguments{
 \item{zonal_tasks}{A tibble of zonal tasks created by \code{create_zonal_tasks}}
@@ -12,8 +12,6 @@ compute_zonal_tasks(zonal_tasks, g_var, db_file, cores = 1)
 \item{g_var}{Variable name (string) that unique identifies each feature at the sf object.}
 
 \item{db_file}{A path and file name for the SQLite database.}
-
-\item{cores}{Number of cores to use.}
 }
 \value{
 An SQLite database.

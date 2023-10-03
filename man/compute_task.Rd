@@ -4,7 +4,7 @@
 \alias{compute_task}
 \title{Compute a zonal task}
 \usage{
-compute_task(rst, pol, g_var, fn_name, db_file, p = NULL)
+compute_task(rst, pol, g_var, fn_name, db_file)
 }
 \arguments{
 \item{rst}{The rst variable from a zonal tasks tibble}
@@ -16,8 +16,6 @@ compute_task(rst, pol, g_var, fn_name, db_file, p = NULL)
 \item{fn_name}{The fn_name variable from a zonal tasks tibble}
 
 \item{db_file}{Path and file name to SQLite database.}
-
-\item{p}{Progress bar variable.}
 }
 \value{
 Writes the results of the zonal taks into the SQLite database and return a TRUE value.

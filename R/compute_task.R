@@ -5,21 +5,18 @@
 #' @param g_var Variable name (string) that unique identifies each feature at the sf object.
 #' @param fn_name The fn_name variable from a zonal tasks tibble
 #' @param db_file Path and file name to SQLite database.
-#' @param p Progress bar variable.
 #'
 #' @return Writes the results of the zonal taks into the SQLite database and return a TRUE value.
 #' @export
 #'
 #' @importFrom rlang :=
-compute_task <- function(rst, pol, g_var, fn_name, db_file, p = NULL){
-
-  # Progress bar update
-  if(!is.null(p)){
-    p()
-  }
+compute_task <- function(rst, pol, g_var, fn_name, db_file){
 
   # Set gdal cache
   terra::gdalCache(15000)
+
+  # Set epsg
+  terra::crs(rst) <- "epsg:4326"
 
   # Calculate zonal fn_name
   names(rst) <- terra::time(rst)

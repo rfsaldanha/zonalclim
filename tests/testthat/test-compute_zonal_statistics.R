@@ -11,13 +11,12 @@ test_that("compute_zonal_tasks works", {
     zonal_functions = zonal_list
   )
 
-  db_file <- tempfile(fileext = ".sqlite")
+  db_file <- tempfile(fileext = ".duckdb")
 
   res <- compute_zonal_tasks(
     zonal_tasks = zonal_tasks,
     g_var = "GID_3",
-    db_file = db_file,
-    cores = 1
+    db_file = db_file
   )
 
   expect_true(file.exists(db_file))
