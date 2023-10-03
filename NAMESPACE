@@ -2,4 +2,6 @@
 
 export("%>%")
 export(compute_task)
+export(compute_zonal_tasks)
+export(create_zonal_tasks)
 importFrom(magrittr,"%>%")

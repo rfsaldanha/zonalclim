@@ -1,3 +1,13 @@
+#' Create tasks of zonal statistics
+#'
+#' @param nc_files_list A vector of NetCDF files addresses.
+#' @param nc_chunk_size Chunk size for raster layers processing.
+#' @param sf_geom An sf object.
+#' @param sf_chunck_size Chunk size for sf features processing.
+#' @param zonal_functions A vector of zonal statistics to be computed.
+#'
+#' @return A tibble where each row is a zonal statistic that should be computed using a chunk of raster layers and a chunk of sf features.
+#' @export
 create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_size, zonal_functions){
   # Read nc files
   nc_data <- terra::rast(x = nc_files_list)

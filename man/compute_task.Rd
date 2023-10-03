@@ -2,13 +2,24 @@
 % Please edit documentation in R/compute_task.R
 \name{compute_task}
 \alias{compute_task}
-\title{Compute tasks}
+\title{Compute a zonal task}
 \usage{
-compute_task(rst, pol, fn_name, db_dir, p = NULL)
+compute_task(rst, pol, g_var, fn_name, db_file, p = NULL)
 }
 \arguments{
-\item{p}{}
+\item{rst}{The rst variable from a zonal tasks tibble}
+
+\item{pol}{The pol variable from a zonal tasks tibble}
+
+\item{fn_name}{The fn_name variable from a zonal tasks tibble}
+
+\item{db_file}{Path and file name to SQLite database.}
+
+\item{p}{Progress bar variable.}
+}
+\value{
+Writes the results of the zonal taks into the SQLite database and return a TRUE value.
 }
 \description{
-Compute tasks
+Compute a zonal task
 }

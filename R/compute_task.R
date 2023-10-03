@@ -1,20 +1,14 @@
-#' Compute tasks
+#' Compute a zonal task
 #'
-#' @param rst
-#' @param pol
-#' @param fn_name
-#' @param db_file
-#' @param p
+#' @param rst The rst variable from a zonal tasks tibble
+#' @param pol The pol variable from a zonal tasks tibble
+#' @param fn_name The fn_name variable from a zonal tasks tibble
+#' @param db_file Path and file name to SQLite database.
+#' @param p Progress bar variable.
 #'
-#' @return
+#' @return Writes the results of the zonal taks into the SQLite database and return a TRUE value.
 #' @export
 compute_task <- function(rst, pol, g_var, fn_name, db_file, p = NULL){
-
-  # rst <- zonal_tasks$rst[[2]]
-  # pol <- zonal_tasks$geom[[2]]
-  # fn_name <- zonal_tasks$fn[[2]]
-  # db_file <- tempfile(fileext = ".sqlite")
-
 
   # Progress bar update
   if(!is.null(p)){
