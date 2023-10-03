@@ -1,4 +1,4 @@
-compute_zonal_tasks <- function(zonal_tasks, db_dir){
+compute_zonal_tasks <- function(zonal_tasks, g_var, db_file, cores = 1){
   # # progressr enable
   # options(progressr.enable=TRUE)
   #
@@ -11,48 +11,48 @@ compute_zonal_tasks <- function(zonal_tasks, db_dir){
   # ))
 
   # Delete database if exists
-  if(file.exists(db_dir)) unlink(db_dir)
+  if(file.exists(db_file)) unlink(db_file)
 
   # Starting message
   usethis::ui_info("Starting...")
 
-  # Plan parallel session
-  # if(interactive()){
-  #   future::plan(future::multisession, workers = 4)
-  # } else (
-  #   future::plan(future::multicore, workers = 4)
-  # )
-
-  future::plan(future::multisession, workers = 4)
-
-
   tictoc::tic()
-  progressr::with_progress({
-    p <- progressr::progressor(steps = nrow(zonal_tasks))
-    result <- furrr::future_pmap(
+  # Single core or parallel
+  if(cores == 1){
+
+    result <- purrr::pmap(
       .l = list(
         rst = zonal_tasks$rst,
         pol = zonal_tasks$geom,
         fn_name = zonal_tasks$fn,
-        db_dir = db_dir
+        db_file = db_file,
+        g_var = g_var
       ),
-      .f = zonalclim::compute_tasks,
-      .options = furrr::furrr_options(seed = TRUE),
-      p = p
+      .f = compute_task,
+      .progress = TRUE
     )
-  })
+  } else {
+    # Plan parallel session
+    future::plan(future::multicore, workers = cores)
+
+    progressr::with_progress({
+      p <- progressr::progressor(steps = nrow(zonal_tasks))
+      result <- furrr::future_pmap(
+        .l = list(
+          rst = zonal_tasks$rst,
+          pol = zonal_tasks$geom,
+          fn_name = zonal_tasks$fn,
+          db_file = db_file,
+          g_var = g_var
+        ),
+        .f = compute_task,
+        .options = furrr::furrr_options(seed = TRUE),
+        p = p
+      )
+    })
+  }
+  usethis::ui_done("Done!")
   tictoc::toc()
 
-  # tictoc::tic()
-  # result <- purrr::pmap(
-  #   .l = list(
-  #     rst = zonal_tasks$rst,
-  #     pol = zonal_tasks$geom,
-  #     fn_name = zonal_tasks$fn,
-  #     db_dir = db_dir
-  #   ),
-  #   .f = zonalclim::compute_tasks
-  # )
-  # tictoc::toc()
-
+  return(result)
 }
