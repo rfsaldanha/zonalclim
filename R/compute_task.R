@@ -2,12 +2,15 @@
 #'
 #' @param rst The rst variable from a zonal tasks tibble
 #' @param pol The pol variable from a zonal tasks tibble
+#' @param g_var Variable name (string) that unique identifies each feature at the sf object.
 #' @param fn_name The fn_name variable from a zonal tasks tibble
 #' @param db_file Path and file name to SQLite database.
 #' @param p Progress bar variable.
 #'
 #' @return Writes the results of the zonal taks into the SQLite database and return a TRUE value.
 #' @export
+#'
+#' @importFrom rlang :=
 compute_task <- function(rst, pol, g_var, fn_name, db_file, p = NULL){
 
   # Progress bar update
@@ -33,12 +36,12 @@ compute_task <- function(rst, pol, g_var, fn_name, db_file, p = NULL){
   # Data structure
   tmp <- dplyr::bind_cols(!!dplyr::sym(g_var) := get(g_var, pol), tmp) %>%
     tidyr::pivot_longer(!(!!dplyr::sym(g_var))) %>%
-    dplyr::rename(date = name) %>%
+    dplyr::rename(date = "name") %>%
     dplyr::mutate(
       date = as.Date(substr(date, 6, 15)),
       name = paste0(terra::varnames(rst)[1], "_", fn_name)
     ) %>%
-    dplyr::relocate(name, .before = value)
+    dplyr::relocate("name", .before = "value")
 
   # Write to database
   conn = DBI::dbConnect(RSQLite::SQLite(), db_file, extended_types = TRUE, synchronous = NULL)

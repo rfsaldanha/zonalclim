@@ -13,7 +13,7 @@ create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_
   nc_data <- terra::rast(x = nc_files_list)
 
   # Retrieve aggregation function from file name
-  agg_fun_file_name <- stringr::str_extract(string = nc_list, "[^_]+$") %>%
+  agg_fun_file_name <- stringr::str_extract(string = nc_files_list, "[^_]+$") %>%
     stringr::str_remove(".nc$")
 
   # Add aggregation function to SpatRaster varname propertie
@@ -26,8 +26,9 @@ create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_
   )
 
   # Split sf_geom into chuncks
+  n_row <- nrow(sf_geom)
   sf_geom_chunks <- sf_geom %>%
-    dplyr::mutate(chunk = (seq(nrow(.))-1) %/% sf_chunck_size + 1) %>%
+    dplyr::mutate(chunk = (seq(n_row)-1) %/% sf_chunck_size + 1) %>%
     dplyr::group_split()
 
   # Create task lists with nc chuncks, sf chunks and zonal statistical functions

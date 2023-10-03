@@ -11,6 +11,8 @@ compute_task(rst, pol, g_var, fn_name, db_file, p = NULL)
 
 \item{pol}{The pol variable from a zonal tasks tibble}
 
+\item{g_var}{Variable name (string) that unique identifies each feature at the sf object.}
+
 \item{fn_name}{The fn_name variable from a zonal tasks tibble}
 
 \item{db_file}{Path and file name to SQLite database.}
