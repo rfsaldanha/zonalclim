@@ -2,8 +2,7 @@ Package: zonalclim
 Title: Compute Zonal Statistics for Climate Studies
 Version: 0.0.0.9000
 Authors@R: 
-   person("Raphael", "Saldanha", email = "raphael.de-freitas-saldanha@inria.fr", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-0652-8466"))
+   person("Anonymous", "Author", email = "anonymous@author.com", role = c("aut", "cre"))
 Description: Compute zonal statistics from NetCDF files and sf objects.
 License: MIT + file LICENSE
 Encoding: UTF-8
