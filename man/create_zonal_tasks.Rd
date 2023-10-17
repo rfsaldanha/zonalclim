@@ -9,7 +9,8 @@ create_zonal_tasks(
   nc_chunk_size,
   sf_geom,
   sf_chunck_size,
-  zonal_functions
+  zonal_functions,
+  pop = NULL
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ create_zonal_tasks(
 \item{sf_chunck_size}{Chunk size for sf features processing.}
 
 \item{zonal_functions}{A vector of zonal statistics to be computed.}
+
+\item{pop}{optional. A vector of a population raster address.}
 }
 \value{
 A tibble where each row is a zonal statistic that should be computed using a chunk of raster layers and a chunk of sf features.

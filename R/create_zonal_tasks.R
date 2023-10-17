@@ -5,10 +5,11 @@
 #' @param sf_geom An sf object.
 #' @param sf_chunck_size Chunk size for sf features processing.
 #' @param zonal_functions A vector of zonal statistics to be computed.
+#' @param pop optional. A vector of a population raster address.
 #'
 #' @return A tibble where each row is a zonal statistic that should be computed using a chunk of raster layers and a chunk of sf features.
 #' @export
-create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_size, zonal_functions){
+create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_size, zonal_functions, pop = NULL){
   # Read nc files
   nc_data <- terra::rast(x = nc_files_list)
 
@@ -38,6 +39,18 @@ create_zonal_tasks <- function(nc_files_list, nc_chunk_size, sf_geom, sf_chunck_
     geom = sf_geom_chunks,
     fn = zonal_functions
   )
+
+  # If pop exists, add to task
+  if(!is.null(pop)){
+    pop_rst <- list(terra::rast(x = pop))
+
+    zonal_tasks <- tidyr::expand_grid(
+      rst = nc_data_chunks,
+      geom = sf_geom_chunks,
+      fn = zonal_functions,
+      pop_rst = pop_rst
+    )
+  }
 
   # Return tasks
   return(zonal_tasks)
