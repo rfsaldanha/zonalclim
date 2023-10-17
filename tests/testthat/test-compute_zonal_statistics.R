@@ -32,6 +32,8 @@ test_that("compute_zonal_tasks works", {
 
 
 test_that("compute_zonal_tasks works with pop", {
+  if(FALSE) dbplyr::translate_sql()
+
   nc_list <- system.file("extdata", "2m_temperature_2000-01-01_2000-01-31_day_max.nc", package="zonalclim")
   sf_geom <- gadm41_moz
   zonal_list <- c("weighted_mean")

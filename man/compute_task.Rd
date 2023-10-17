@@ -4,12 +4,14 @@
 \alias{compute_task}
 \title{Compute a zonal task}
 \usage{
-compute_task(rst, pol, g_var, fn_name, db_file)
+compute_task(rst, pol, pop = NULL, g_var, fn_name, db_file)
 }
 \arguments{
 \item{rst}{The rst variable from a zonal tasks tibble}
 
 \item{pol}{The pol variable from a zonal tasks tibble}
+
+\item{pop}{Optional. Population weighting raster}
 
 \item{g_var}{Variable name (string) that unique identifies each feature at the sf object.}
 
