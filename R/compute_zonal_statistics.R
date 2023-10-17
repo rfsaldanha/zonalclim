@@ -10,18 +10,32 @@ compute_zonal_tasks <- function(zonal_tasks, g_var, db_file){
   # Delete database if exists
   if(file.exists(db_file)) unlink(db_file)
 
-  # Starting message
-  usethis::ui_info("Starting...")
 
-  tictoc::tic()
-  result <- purrr::pmap(
-    .l = list(
+  if(!("pop_rst" %in% names(zonal_tasks))){
+    zonal_tasks_list <- list(
       rst = zonal_tasks$rst,
       pol = zonal_tasks$geom,
       fn_name = zonal_tasks$fn,
       db_file = db_file,
       g_var = g_var
-    ),
+    )
+  } else {
+    zonal_tasks_list <- list(
+      rst = zonal_tasks$rst,
+      pol = zonal_tasks$geom,
+      fn_name = zonal_tasks$fn,
+      pop = zonal_tasks$pop_rst,
+      db_file = db_file,
+      g_var = g_var
+    )
+  }
+
+  # Starting message
+  usethis::ui_info("Starting...")
+
+  tictoc::tic()
+  result <- purrr::pmap(
+    .l = zonal_tasks_list,
     .f = compute_task,
     .progress = TRUE
   )

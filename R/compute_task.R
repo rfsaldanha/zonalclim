@@ -2,6 +2,7 @@
 #'
 #' @param rst The rst variable from a zonal tasks tibble
 #' @param pol The pol variable from a zonal tasks tibble
+#' @param pop Optional. Population weighting raster
 #' @param g_var Variable name (string) that unique identifies each feature at the sf object.
 #' @param fn_name The fn_name variable from a zonal tasks tibble
 #' @param db_file Path and file name to SQLite database.
@@ -10,7 +11,7 @@
 #' @export
 #'
 #' @importFrom rlang :=
-compute_task <- function(rst, pol, g_var, fn_name, db_file){
+compute_task <- function(rst, pol, pop = NULL, g_var, fn_name, db_file){
 
   # Set gdal cache
   terra::gdalCache(15000)
@@ -20,12 +21,26 @@ compute_task <- function(rst, pol, g_var, fn_name, db_file){
 
   # Calculate zonal fn_name
   names(rst) <- terra::time(rst)
-  tmp <- exactextractr::exact_extract(
-    x = rst,
-    y = pol,
-    fun = fn_name,
-    progress = FALSE
-  )
+  if(is.null(pop)){
+    tmp <- exactextractr::exact_extract(
+      x = rst,
+      y = pol,
+      fun = fn_name,
+      progress = FALSE
+    )
+  } else {
+    pop <- terra::resample(x = pop, y = rst, method = "sum")
+
+    tmp <- exactextractr::exact_extract(
+      x = rst,
+      y = pol,
+      fun = fn_name,
+      weights = pop,
+      coverage_area = FALSE,
+      progress = FALSE
+    )
+  }
+
 
   # Change names
   names(tmp) <- paste0("date_", as.Date(terra::time(rst)))
