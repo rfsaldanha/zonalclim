@@ -29,8 +29,6 @@ compute_task <- function(rst, pol, pop = NULL, g_var, fn_name, db_file){
       progress = FALSE
     )
   } else {
-    pop <- terra::resample(x = pop, y = rst, method = "sum")
-
     tmp <- exactextractr::exact_extract(
       x = rst,
       y = pol,
