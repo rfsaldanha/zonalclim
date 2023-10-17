@@ -23,6 +23,7 @@ test_that("compute_zonal_tasks works", {
   tables <- DBI::dbListTables(conn)
   res2 <- dplyr::tbl(conn, tables[1]) %>% dplyr::collect()
   length(unique(res2$date))
+  DBI::dbDisconnect(conn)
 
   expect_true(file.exists(db_file))
   expect_equal(length(unique(res2$date)), 31)
