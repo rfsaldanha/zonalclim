@@ -1,3 +1,3 @@
-# zonalclim (development version)
+# zonalclim 0.0.1
 
-* Initial CRAN submission.
+* Initial version with basic functions.

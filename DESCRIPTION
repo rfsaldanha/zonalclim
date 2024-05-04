@@ -1,6 +1,6 @@
 Package: zonalclim
 Title: Compute Zonal Statistics for Climate Studies
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
    person("Anonymous", "Author", email = "anonymous@author.com", role = c("aut", "cre"))
 Description: Compute zonal statistics from NetCDF files and sf objects.
@@ -10,7 +10,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     DBI,
-    dbplyr,
     dplyr,
     exactextractr,
     hms,
