@@ -57,6 +57,7 @@ compute_task <- function(rst, pol, pop = NULL, g_var, fn_name, db_file){
 
   # Extend types requires the hms package. The line below simulates its use to allow include it as a package dependency
   if(FALSE) hms::hms()
+  if(FALSE) dbplyr::db_collect()
 
   conn = DBI::dbConnect(RSQLite::SQLite(), db_file, extended_types = TRUE, synchronous = NULL)
   DBI::dbExecute(conn, "PRAGMA busy_timeout = 5000")

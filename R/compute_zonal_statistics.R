@@ -31,7 +31,7 @@ compute_zonal_tasks <- function(zonal_tasks, g_var, db_file){
   }
 
   # Starting message
-  usethis::ui_info("Starting...")
+  cli::cli_alert_info("Starting...")
 
   tictoc::tic()
   result <- purrr::pmap(
@@ -39,7 +39,7 @@ compute_zonal_tasks <- function(zonal_tasks, g_var, db_file){
     .f = compute_task,
     .progress = TRUE
   )
-  usethis::ui_done("Done!")
+  cli::cli_alert_info("Done!")
   tictoc::toc()
 
   return(result)
