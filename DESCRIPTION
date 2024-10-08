@@ -1,13 +1,14 @@
 Package: zonalclim
-Title: Compute Zonal Statistics for Climate Studies
+Title: Compute Zonal Statistics for Climate
 Version: 0.0.1
 Authors@R: 
-   person("Anonymous", "Author", email = "anonymous@author.com", role = c("aut", "cre"))
-Description: Compute zonal statistics from NetCDF files and sf objects.
+    person("Raphael", "Saldanha", , "raphael.de-freitas-saldanha@inria.fr", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0652-8466"))
+Description: Helper functions to compute zonal statistics from NetCDF files and sf objects for climate studies.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     cli,
     DBI,
