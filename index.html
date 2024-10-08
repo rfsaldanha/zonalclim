@@ -5,18 +5,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Compute zonal statistics from NetCDF files and sf objects.">
-<title>Compute Zonal Statistics for Climate Studies • zonalclim</title>
+<title>Compute Zonal Statistics for Climate • zonalclim</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Compute Zonal Statistics for Climate Studies">
-<meta property="og:description" content="Compute zonal statistics from NetCDF files and sf objects.">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7VLSRDCB"></script><script>
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Compute Zonal Statistics for Climate">
+<meta name="description" content="Helper functions to compute zonal statistics from NetCDF files and sf objects for climate studies.">
+<meta property="og:description" content="Helper functions to compute zonal statistics from NetCDF files and sf objects for climate studies.">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7VLSRDCB"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -26,36 +23,28 @@
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="index.html">zonalclim</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav"></ul>
+<ul class="navbar-nav"></ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-home">
 <div class="row">
@@ -64,6 +53,95 @@
 </h1></div>
 <!-- badges: start -->
 
+<p>This R package presents helper functions to compute zonal statistics using NetCDF and sf objects for climate studies.</p>
+<p>Zonal statistics is a Geographic Information System (GIS) method to compute a summary statistic (like mean, standard deviation, or sum) of a spatially contiguous indicator for a given boundary. This is especially useful to compute climate indicators spatially aggregated to geographical boundaries, like counties or municipalities.</p>
+<p>This package relies on the <a href="https://cran.r-project.org/package=exactextractr" class="external-link">exactextractr</a> package to compute the zonal statistics, providing helper functions to compute statistics when you have large NetCDF files with layers and several geographical boundaries.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rfsaldanha/zonalclim"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<p>To handle large NetCDF files and several geographical boundaries, the package presents a function to create chunks of tasks. For example, we can compute some zonal statistics using the package example dataset.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rfsaldanha.github.io/zonalclim/">zonalclim</a></span><span class="op">)</span></span>
+<span><span class="va">nc_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"2m_temperature_2000-01-01_2000-01-31_day_max.nc"</span>, package<span class="op">=</span><span class="st">"zonalclim"</span><span class="op">)</span></span>
+<span><span class="va">sf_geom</span> <span class="op">&lt;-</span> <span class="va">gadm41_moz</span></span>
+<span><span class="va">zonal_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"max"</span>, <span class="st">"min"</span>, <span class="st">"stdev"</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>nc_list</code> object is a path to a NetCDF file, with layers for different dates for an indicator (maximum temperature from the Copernicus ERA5-Land on Mozambique). This can also be a list of NetCDF files with this structure. The <code>sf_geom</code> contains the geographical boundaries (level 3) and <code>zonal_list</code> is a vector of summary functions to be computed.</p>
+<div class="section level3">
+<h3 id="zonal-tasks">Zonal tasks<a class="anchor" aria-label="anchor" href="#zonal-tasks"></a>
+</h3>
+<p>When handling a large number of NetCDF files, each one with a large number of layers, the load to compute zonal statistics can be larger than the available computational capacity. In this situation, we can split the computational task into smaller tasks, using the <code>zonal_tasks()</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">zonal_tasks</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/create_zonal_tasks.html">create_zonal_tasks</a></span><span class="op">(</span></span>
+<span>  nc_files_list <span class="op">=</span> <span class="va">nc_list</span>,</span>
+<span>  nc_chunk_size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  sf_geom <span class="op">=</span> <span class="va">sf_geom</span>,</span>
+<span>  sf_chunck_size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  zonal_functions <span class="op">=</span> <span class="va">zonal_list</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>The function will split the NetCDF file(s) and sf contents into chunks of tasks, based on the arguments <code>nc_chunk_size</code> and <code>sf_chunck_size</code>. The key is finding a <strong>balance</strong> between chunk sizes, speed, and computational load. Less but larger chunks are faster to compute than several smaller chunks but demand more available memory.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">zonal_tasks</span></span>
+<span><span class="co">#&gt; # A tibble: 28 × 3</span></span>
+<span><span class="co">#&gt;    rst                geom           fn   </span></span>
+<span><span class="co">#&gt;    &lt;list&gt;             &lt;list&gt;         &lt;chr&gt;</span></span>
+<span><span class="co">#&gt;  1 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; mean </span></span>
+<span><span class="co">#&gt;  2 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; max  </span></span>
+<span><span class="co">#&gt;  3 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; min  </span></span>
+<span><span class="co">#&gt;  4 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; stdev</span></span>
+<span><span class="co">#&gt;  5 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; mean </span></span>
+<span><span class="co">#&gt;  6 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; max  </span></span>
+<span><span class="co">#&gt;  7 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; min  </span></span>
+<span><span class="co">#&gt;  8 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; stdev</span></span>
+<span><span class="co">#&gt;  9 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; mean </span></span>
+<span><span class="co">#&gt; 10 &lt;SpatRstr[,111,5]&gt; &lt;sf [413 × 4]&gt; max  </span></span>
+<span><span class="co">#&gt; # ℹ 18 more rows</span></span></code></pre></div>
+<p>In this example, the function combined the 31 raster layers, 413 spatial boundaries, and the four statistics to be computed into 28 computational tasks. Bigger chunk sizes will lead to fewer but heavier tasks.</p>
+</div>
+<div class="section level3">
+<h3 id="compute-tasks">Compute tasks<a class="anchor" aria-label="anchor" href="#compute-tasks"></a>
+</h3>
+<p>To compute these tasks, use the <code><a href="reference/compute_zonal_tasks.html">compute_zonal_tasks()</a></code> function. This function will compute the tasks (sequentially) and store their results in a SQLite database.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">db_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".sqlite"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/compute_zonal_tasks.html">compute_zonal_tasks</a></span><span class="op">(</span></span>
+<span>  zonal_tasks <span class="op">=</span> <span class="va">zonal_tasks</span>,</span>
+<span>  g_var <span class="op">=</span> <span class="st">"GID_3"</span>,</span>
+<span>  db_file <span class="op">=</span> <span class="va">db_file</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ Starting...</span></span>
+<span><span class="co">#&gt;  ■■■■■■■■■■■                       32% |  ETA:  2s ■■■■■■■■■■■■                      36% |  ETA:  2s ■■■■■■■■■■■■■■■                   46% |  ETA:  2s ■■■■■■■■■■■■■■■■                  50% |  ETA:  2s ■■■■■■■■■■■■■■■■■■■■■■            71% |  ETA:  1s ■■■■■■■■■■■■■■■■■■■■■■■■■         79% |  ETA:  1s ■■■■■■■■■■■■■■■■■■■■■■■■■■■       86% |  ETA:  0sNew names:New names: ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     93% |  ETA:  0sNew names:New names:                                                  ℹ Done!</span></span>
+<span><span class="co">#&gt; 3.024 sec elapsed</span></span></code></pre></div>
+<p>Let’s check the results.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">conn</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html" class="external-link">dbConnect</a></span><span class="op">(</span><span class="fu">RSQLite</span><span class="fu">::</span><span class="fu"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html" class="external-link">SQLite</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">db_file</span>, extended_types <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">tables</span> <span class="op">&lt;-</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbListTables.html" class="external-link">dbListTables</a></span><span class="op">(</span><span class="va">conn</span><span class="op">)</span></span>
+<span><span class="va">res2</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/tbl.html" class="external-link">tbl</a></span><span class="op">(</span><span class="va">conn</span>, <span class="va">tables</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">res2</span></span>
+<span><span class="co">#&gt; # A tibble: 51,212 × 4</span></span>
+<span><span class="co">#&gt;    GID_3       date       name                    value</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;       &lt;date&gt;     &lt;chr&gt;                   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 MOZ.1.1.1_1 2000-01-01 2m_temperature_max_mean  306.</span></span>
+<span><span class="co">#&gt;  2 MOZ.1.1.1_1 2000-01-02 2m_temperature_max_mean  305.</span></span>
+<span><span class="co">#&gt;  3 MOZ.1.1.1_1 2000-01-03 2m_temperature_max_mean  299.</span></span>
+<span><span class="co">#&gt;  4 MOZ.1.1.1_1 2000-01-04 2m_temperature_max_mean  302.</span></span>
+<span><span class="co">#&gt;  5 MOZ.1.1.1_1 2000-01-05 2m_temperature_max_mean  304.</span></span>
+<span><span class="co">#&gt;  6 MOZ.1.1.2_1 2000-01-01 2m_temperature_max_mean  306.</span></span>
+<span><span class="co">#&gt;  7 MOZ.1.1.2_1 2000-01-02 2m_temperature_max_mean  305.</span></span>
+<span><span class="co">#&gt;  8 MOZ.1.1.2_1 2000-01-03 2m_temperature_max_mean  300.</span></span>
+<span><span class="co">#&gt;  9 MOZ.1.1.2_1 2000-01-04 2m_temperature_max_mean  302.</span></span>
+<span><span class="co">#&gt; 10 MOZ.1.1.2_1 2000-01-05 2m_temperature_max_mean  304.</span></span>
+<span><span class="co">#&gt; # ℹ 51,202 more rows</span></span></code></pre></div>
+</div>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
@@ -84,7 +162,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Anonymous Author <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Raphael Saldanha <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0652-8466" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -100,19 +178,19 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Anonymous Author.</p>
+  <p>Developed by Raphael Saldanha.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>

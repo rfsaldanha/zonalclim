@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/404.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/compute_task.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/compute_zonal_tasks.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/create_zonal_tasks.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/gadm41_moz.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/zonalclim/reference/pipe.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://rfsaldanha.github.io/zonalclim/404.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/LICENSE-text.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/LICENSE.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/authors.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/index.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/news/index.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/compute_task.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/compute_zonal_tasks.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/create_zonal_tasks.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/gadm41_moz.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/index.html</loc></url>
+<url><loc>https://rfsaldanha.github.io/zonalclim/reference/pipe.html</loc></url>
 </urlset>
+
